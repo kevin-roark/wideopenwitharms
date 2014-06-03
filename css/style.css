@@ -12,6 +12,11 @@ body {
   font-size: 69px;
 }
 
+.debug {
+  position: fixed;
+  font-size: 72px;
+}
+
 .footer {
   width: 100%;
   padding: 1em 0em;
