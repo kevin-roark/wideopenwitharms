@@ -31,9 +31,16 @@ $(function() {
   var creed = document.querySelector('#creed');
   var $creed = $(creed);
 
-  creed.addEventListener('canplaythrough', mediaReady);
+  var arms = document.querySelector('#arms');
+  var $arms = $(arms);
 
-  var numMedia = 1;
+  creed.addEventListener('canplaythrough', mediaReady);
+  arms.addEventListener('canplaythrough', mediaReady);
+  arms.addEventListener('ended', function() {
+    $('.done').fadeIn();
+  });
+
+  var numMedia = 2;
   var mediaLoaded = 0;
   function mediaReady() {
     if (++mediaLoaded >= numMedia) {
@@ -45,6 +52,9 @@ $(function() {
 
   function start() {
     creed.play();
+
+    arms.muted = true;
+    arms.play();
 
     setTimeout(function() {
       changeWord();
